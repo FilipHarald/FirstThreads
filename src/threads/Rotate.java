@@ -16,7 +16,7 @@ public class Rotate implements Runnable {
 			System.out.println("runRotateImage");
 			c.rotateImage();
 			try {
-				Thread.sleep(100);
+				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				break;
 			}

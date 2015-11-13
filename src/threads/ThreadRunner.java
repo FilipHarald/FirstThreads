@@ -9,7 +9,7 @@ public class ThreadRunner {
 	private Display runnableDisplay;
 	private Rotate runnableRotate;
 	private Music runnableMusic;
-	private Thread playThread;
+	private PlayThread playThread;
 	private Thread moveThread;
 	private Thread rotateThread;
 
@@ -53,7 +53,7 @@ public class ThreadRunner {
 
 	public void startMusic() {
 		if (playThread == null) {
-			playThread = new Thread(runnableMusic);
+			playThread = new PlayThread(runnableMusic);
 			playThread.start();
 		}
 		
@@ -61,10 +61,23 @@ public class ThreadRunner {
 
 	public void stopMusic() {
 		if (playThread.isAlive()) {
-			runnableMusic.stopMusic();
 			playThread.interrupt();
 			playThread = null;
 		}
 	}
+	
+	private class PlayThread extends Thread{
+		private Music m;
+		
+		public PlayThread(Music m){
+			super(m);
+			this.m = m;
+		}
 
+		@Override
+		public void interrupt() {
+			m.stopPlaying();
+			super.interrupt();
+		}
+	}
 }

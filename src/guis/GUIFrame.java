@@ -14,6 +14,7 @@ import java.io.IOException;
 
 import javax.swing.*;
 import javax.swing.border.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.imageio.ImageIO;
 
 import controller.Controller;
@@ -199,11 +200,13 @@ public class GUIFrame
 			if(e.getSource() == btnOpen){
 				JFileChooser fc = new JFileChooser();
 				fc.setCurrentDirectory(new File(System.getProperty("user.dir")));
+				fc.setFileFilter(new FileNameExtensionFilter("Sounds", new String []{"wav", "mp3"}));
 				int returnVal = fc.showOpenDialog(null);
 		        if (returnVal == JFileChooser.APPROVE_OPTION) {
 		            File file = fc.getSelectedFile();
 		            System.out.println(file);
 		            controller.setMusicFile(file);
+		            lblPlayURL.setText(file.toString());
 		        } else {
 		        	System.out.println("Open command cancelled by user.");
 		        }
