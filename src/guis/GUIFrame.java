@@ -198,17 +198,19 @@ public class GUIFrame
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == btnOpen){
 				JFileChooser fc = new JFileChooser();
+				fc.setCurrentDirectory(new File(System.getProperty("user.dir")));
 				int returnVal = fc.showOpenDialog(null);
 		        if (returnVal == JFileChooser.APPROVE_OPTION) {
 		            File file = fc.getSelectedFile();
-		            
+		            System.out.println(file);
+		            controller.setMusicFile(file);
 		        } else {
 		        	System.out.println("Open command cancelled by user.");
 		        }
 			}else if(e.getSource() == btnPlay){
-				System.out.println("2");
+				controller.playMusic();
 			}else if(e.getSource() == btnStop){
-				System.out.println("3");
+				controller.stopMusic();
 			}else if(e.getSource() == btnDisplay){
 				controller.startDisplay();
 			}else if(e.getSource() == btnDStop){

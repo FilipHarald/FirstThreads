@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.File;
+
 import guis.GUIFrame;
 import threads.ThreadRunner;
 
@@ -35,5 +37,17 @@ public class Controller {
 
 	public void stopRotate() {
 		threadRunner.stopRotate();
+	}
+
+	public void setMusicFile(File file) {
+		threadRunner.setMusicFile(file);
+	}
+	
+	public void playMusic(){
+		threadRunner.startMusic();
+	}
+
+	public void stopMusic() {
+		threadRunner.stopMusic();
 	}
 }
