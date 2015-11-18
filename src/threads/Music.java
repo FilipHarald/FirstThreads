@@ -15,6 +15,10 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
+/**A class for retreiving a music file and playing it.
+ * @author Filip
+ *
+ */
 public class Music implements Runnable{
 	Player player;
 	File file;
@@ -22,6 +26,9 @@ public class Music implements Runnable{
 	public Music(){
 	}
 	
+	/**Sets the music file
+	 * @param file
+	 */
 	public void setFile(File file){
 		this.file = file;
 	}
@@ -38,6 +45,9 @@ public class Music implements Runnable{
 			}
 	}
 
+	/**
+	 * Plays the previously selected file
+	 */
 	public void stopPlaying() {
 		player.close();
 	}

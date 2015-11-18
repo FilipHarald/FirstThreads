@@ -4,6 +4,10 @@ import java.util.Random;
 
 import controller.Controller;
 
+/**A class for randoming new int-values inside the diplay height and width
+ * @author Filip
+ *
+ */
 public class Display implements Runnable{
 	private int maxX;
 	private int maxY;
@@ -11,6 +15,11 @@ public class Display implements Runnable{
 	private Random rand;
 
 	
+	/**
+	 * @param c the controller, used for accessing the GUIFrame
+	 * @param maxX the max x-value
+	 * @param maxY the max y-value
+	 */
 	public Display(Controller c, int maxX, int maxY) {
 		this.maxX = maxX;
 		this.maxY = maxY;

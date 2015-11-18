@@ -193,6 +193,10 @@ public class GUIFrame
 		pnlRotate.repaint();
 	}
 	
+	/**
+	 * Listens to all the buttons in the frame
+	 * @author Filip
+	 */
 	private class ButtonListener implements ActionListener {
 
 		@Override
@@ -226,6 +230,10 @@ public class GUIFrame
 		}
 
 	}
+	/**Specific panel for the rotating image
+	 * @author Filip
+	 *
+	 */
 	private class RotateLabel extends JPanel{
 		private BufferedImage bi;
 		private int rotation;
